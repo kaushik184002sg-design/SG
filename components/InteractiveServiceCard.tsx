@@ -27,8 +27,8 @@ class Particle {
     this.vy = 0;
   }
 
-  draw(ctx: CanvasRenderingContext2D) {
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+  draw(ctx: CanvasRenderingContext2D, isDarkMode: boolean) {
+    ctx.fillStyle = isDarkMode ? 'rgba(255, 255, 255, 0.5)' : 'rgba(0, 0, 0, 0.5)';
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
     ctx.closePath();
@@ -73,12 +73,31 @@ export const InteractiveServiceCard: React.FC<InteractiveServiceCardProps> = ({ 
   const particlesRef = useRef<Particle[]>([]);
   const animationFrameId = useRef<number>();
   const [isHovered, setIsHovered] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(!document.body.classList.contains('light-mode'));
   
   const mouse = useRef({
     x: null as number | null,
     y: null as number | null,
     radius: 100
   });
+
+  useEffect(() => {
+    // Observer for theme changes
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.target === document.body && mutation.attributeName === 'class') {
+          setIsDarkMode(!document.body.classList.contains('light-mode'));
+        }
+      });
+    });
+
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -89,14 +108,14 @@ export const InteractiveServiceCard: React.FC<InteractiveServiceCardProps> = ({ 
     if (!ctx) return;
     
     const setCanvasSize = () => {
-        const dpr = window.devicePixelRatio || 1;
-        const rect = container.getBoundingClientRect();
-        canvas.width = rect.width * dpr;
-        canvas.height = rect.height * dpr;
-        ctx.scale(dpr, dpr);
-        canvas.style.width = `${rect.width}px`;
-        canvas.style.height = `${rect.height}px`;
-    }
+      const dpr = window.devicePixelRatio || 1;
+      const rect = container.getBoundingClientRect();
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      ctx.scale(dpr, dpr);
+      canvas.style.width = `${rect.width}px`;
+      canvas.style.height = `${rect.height}px`;
+    };
 
     const init = () => {
       setCanvasSize();
@@ -107,21 +126,21 @@ export const InteractiveServiceCard: React.FC<InteractiveServiceCardProps> = ({ 
           particlesRef.current.push(new Particle(x, y, 1));
         }
       }
-    }
+    };
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       particlesRef.current.forEach(particle => {
         particle.update(mouse.current);
-        particle.draw(ctx);
+        particle.draw(ctx, isDarkMode);
       });
       animationFrameId.current = requestAnimationFrame(animate);
-    }
-    
+    };
+
     init();
     animate();
 
-    const resizeObserver = new ResizeObserver(() => init());
+    const resizeObserver = new ResizeObserver(init);
     resizeObserver.observe(container);
 
     return () => {
@@ -129,8 +148,8 @@ export const InteractiveServiceCard: React.FC<InteractiveServiceCardProps> = ({ 
         cancelAnimationFrame(animationFrameId.current);
       }
       resizeObserver.disconnect();
-    }
-  }, []);
+    };
+  }, [isDarkMode]);
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     const rect = containerRef.current?.getBoundingClientRect();
@@ -156,16 +175,16 @@ export const InteractiveServiceCard: React.FC<InteractiveServiceCardProps> = ({ 
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouseMove}
-      className="relative bg-white/5 border border-white/15 backdrop-blur-lg rounded-2xl p-6 md:p-8 overflow-hidden"
+      className="relative bg-[var(--glass-bg)] border border-[var(--glass-bg)] backdrop-blur-lg rounded-2xl p-6 md:p-8 overflow-hidden"
     >
       <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full" />
       
-      <div className={`relative z-10 transition-opacity duration-300 ease-in-out ${isHovered ? 'opacity-0' : 'opacity-100'}`}>
-        <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mb-4">
+      <div className="relative z-10">
+        <div className="w-12 h-12 bg-[var(--glass-bg)] rounded-lg flex items-center justify-center mb-4">
           {icon}
         </div>
-        <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
-        <p className="text-neutral-300 leading-relaxed">{description}</p>
+        <h3 className="text-xl font-bold text-[var(--text-heading)] mb-2">{title}</h3>
+        <p className="text-[var(--text-main)] leading-relaxed">{description}</p>
       </div>
     </div>
   );

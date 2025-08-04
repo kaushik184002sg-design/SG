@@ -33,7 +33,7 @@ export const JourneyChart: React.FC = () => {
   return (
     <div className="relative container mx-auto px-6 flex flex-col space-y-8">
       <motion.div 
-        className="absolute w-1 h-full bg-white/10 left-1/2 -translate-x-1/2"
+        className="absolute w-1 h-full bg-[var(--text-main)]/10 left-1/2 -translate-x-1/2"
         initial={{ scaleY: 0, opacity: 0 }}
         animate={{ scaleY: 1, opacity: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
@@ -57,14 +57,14 @@ export const JourneyChart: React.FC = () => {
               ease: "easeOut"
             }}
           >
-            <div className={`w-full max-w-sm p-6 bg-white/5 border border-white/15 backdrop-blur-lg rounded-2xl ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
-              <p className="text-xl font-bold text-green-400 mb-1">{milestone.year}</p>
-              <h3 className="text-lg font-semibold text-white mb-2">{milestone.title}</h3>
-              <p className="text-sm text-neutral-300">{milestone.description}</p>
+            <div className={`w-full max-w-sm p-6 bg-[var(--glass-bg)] border border-[var(--glass-bg)] backdrop-blur-lg rounded-2xl ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
+              <p className="text-xl font-bold text-green-600 mb-1">{milestone.year}</p>
+              <h3 className="text-lg font-semibold text-[var(--text-heading)] mb-2">{milestone.title}</h3>
+              <p className="text-sm text-[var(--text-main)]">{milestone.description}</p>
             </div>
           </motion.div>
           <motion.div 
-            className="absolute w-4 h-4 rounded-full bg-green-400 left-1/2 -translate-x-1/2 border-4 border-[#0d0d0d]"
+            className="absolute w-4 h-4 rounded-full bg-green-600 left-1/2 -translate-x-1/2 border-4 border-[var(--bg-main)]"
             initial={{ scale: 0, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
