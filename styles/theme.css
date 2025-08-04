@@ -10,8 +10,10 @@
 /* Light theme */
 body.light-mode {
   --text-main: rgba(0, 0, 0, 0.85);
-  --text-heading: rgba(0, 0, 0, 0.95);
+  --text-heading: rgba(0, 0, 0, 1);
   --bg-main: #ffffff;
-  --bg-secondary: #f5f5f5;
+  --bg-secondary: #f8f8f8;
   --glass-bg: rgba(0, 0, 0, 0.05);
+  --border-color: rgba(0, 0, 0, 0.1);
+  --neutral-text: rgba(0, 0, 0, 0.7);
 }

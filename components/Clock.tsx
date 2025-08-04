@@ -22,10 +22,10 @@ const Clock: React.FC = () => {
 
   return (
     <div>
-      <p className="text-3xl lg:text-4xl font-medium tracking-tight text-white">
+      <p className="text-3xl lg:text-4xl font-medium tracking-tight text-[var(--text-heading)]">
         {date.toLocaleTimeString('en-US', timeOptions)}
       </p>
-      <p className="text-sm text-neutral-300">
+      <p className="text-sm text-[var(--text-main)]">
         {date.toLocaleDateString('en-US', dateOptions)}
       </p>
     </div>
