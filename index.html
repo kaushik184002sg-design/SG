@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SystemsGroup | Innovation & Technology</title>
+    <meta name="description" content="SystemsGroup drives innovation and technology with cutting-edge solutions for modern businesses." />
+    <meta name="keywords" content="SystemsGroup, Innovation, Technology, React, Tailwind, IT Solutions" />
+    <meta name="theme-color" content="#0d0d0d" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/index.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      :root {
+        --bg-main: #0d0d0d;
+        --bg-secondary: #181818;
+        --text-main: #fff;
+        --text-heading: #fff; /* New variable for headings */
+        --glass-bg: rgba(255,255,255,0.1); /* for glassmorphism */
+        --body-particle-color-1: hsla(222, 85%, 68%, 0.15);
+        --body-particle-color-2: hsla(236, 89%, 24%, 0.15);
+        --body-particle-color-3: hsla(244, 44%, 44%, 0.15);
+        --homepage-particle-color-1: hsla(222, 85%, 68%, 0.1);
+        --homepage-particle-color-2: hsla(139, 70%, 67%, 0.1);
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg-main);
+        background-image: 
+          radial-gradient(at 88% 90%, var(--body-particle-color-1) 0px, transparent 50%),
+          radial-gradient(at 26% 39%, var(--body-particle-color-2) 0px, transparent 50%),
+          radial-gradient(at 74% 23%, var(--body-particle-color-3) 0px, transparent 50%);
+        color: var(--text-main);
+        transition: background-color 0.3s, color 0.3s;
+      }
+      .light-mode {
+        --bg-main: #e0e0e0; /* Changed to a shade of grey */
+        --bg-secondary: #f5f5f5;
+        --text-main: #000; /* General text color in light mode (pure black) */
+        --text-heading: #333; /* Headings/subheadings in light mode (dark grey) */
+        --glass-bg: rgba(255,255,255,0.4);
+        --body-particle-color-1: hsla(0, 0%, 0%, 0.15); /* Black for light mode */
+        --body-particle-color-2: hsla(0, 0%, 0%, 0.15);
+        --body-particle-color-3: hsla(0, 0%, 0%, 0.15);
+        --homepage-particle-color-1: hsla(0, 0%, 0%, 0.1); /* Black for light mode */
+        --homepage-particle-color-2: hsla(0, 0%, 0%, 0.1);
+      }
+    </style>
+
+    <script type="importmap">
+    {
+      "imports": {
+        "react/": "https://esm.sh/react@^19.1.1/",
+        "react": "https://esm.sh/react@^19.1.1",
+        "react-dom/": "https://esm.sh/react-dom@^19.1.1/"
+      }
+    }
+    </script>
+  <script type="module" crossorigin src="/assets/index-DjpGiJ9c.js"></script>
+</head>
+  <body>
+    <main id="root" aria-label="Main content"></main>
+    <noscript>
+      <div style="color: #ffffff; background: #222; padding: 1rem; text-align: center;">
+        This site requires JavaScript to function properly. Please enable JavaScript in your browser.
+      </div>
+    </noscript>
+  </body>
+</html>
