@@ -1,0 +1,81 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+
+const milestones = [
+  {
+    year: '2018',
+    title: 'Foundation',
+    description: 'SystemsGroup was founded with a mission to decentralize the digital world, starting with a small team of passionate engineers.',
+  },
+  {
+    year: '2020',
+    title: 'First Major Protocol',
+    description: 'Launched our first-generation blockchain protocol, achieving industry-leading transaction speeds and security benchmarks.',
+  },
+  {
+    year: '2022',
+    title: 'Ecosystem Growth',
+    description: 'Surpassed 1 million active users across our ecosystem and secured strategic partnerships with key industry players.',
+  },
+  {
+    year: '2024',
+    title: 'AI Integration',
+    description: 'Pioneered the integration of AI-driven analytics on-chain, unlocking new possibilities for decentralized applications.',
+  },
+  {
+    year: 'Future',
+    title: 'Vision for Tomorrow',
+    description: 'Expanding into new frontiers, including decentralized physical infrastructure networks (DePIN) and a fully autonomous, AI-managed cloud.',
+  },
+];
+
+export const JourneyChart: React.FC = () => {
+  return (
+    <div className="relative container mx-auto px-6 flex flex-col space-y-8">
+      <motion.div 
+        className="absolute w-1 h-full bg-white/10 left-1/2 -translate-x-1/2"
+        initial={{ scaleY: 0, opacity: 0 }}
+        animate={{ scaleY: 1, opacity: 1 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+      />
+      {milestones.map((milestone, index) => (
+        <div key={index} className="relative flex items-center w-full">
+          <motion.div 
+            className={`w-1/2 flex ${index % 2 === 0 ? 'justify-end pr-8' : 'justify-start pl-8'}`}
+            initial={{ 
+              opacity: 0,
+              x: index % 2 === 0 ? 100 : -100 
+            }}
+            whileInView={{ 
+              opacity: 1,
+              x: 0 
+            }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.8,
+              delay: index * 0.2,
+              ease: "easeOut"
+            }}
+          >
+            <div className={`w-full max-w-sm p-6 bg-white/5 border border-white/15 backdrop-blur-lg rounded-2xl ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
+              <p className="text-xl font-bold text-green-400 mb-1">{milestone.year}</p>
+              <h3 className="text-lg font-semibold text-white mb-2">{milestone.title}</h3>
+              <p className="text-sm text-neutral-300">{milestone.description}</p>
+            </div>
+          </motion.div>
+          <motion.div 
+            className="absolute w-4 h-4 rounded-full bg-green-400 left-1/2 -translate-x-1/2 border-4 border-[#0d0d0d]"
+            initial={{ scale: 0, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.5,
+              delay: index * 0.2 + 0.3,
+              ease: "backOut"
+            }}
+          />
+        </div>
+      ))}
+    </div>
+  );
+};
