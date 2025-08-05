@@ -1,0 +1,22 @@
+.team-card-container {
+  perspective: 1000px;
+}
+
+.team-card {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.team-card.flipped {
+  transform: rotateY(180deg);
+}
+
+.team-card-front,
+.team-card-back {
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+.team-card-back {
+  transform: rotateY(180deg);
+}

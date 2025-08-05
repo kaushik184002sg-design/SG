@@ -32,8 +32,11 @@ const milestones = [
 
 export const JourneyChart: React.FC = () => {
   return (
-    <div className="relative container mx-auto px-4 md:px-6 flex flex-col lg:flex-row gap-8">
-      <div className="relative flex-1 flex flex-col space-y-4 md:space-y-8">
+    <div className="relative container mx-auto px-4 md:px-6 flex flex-col lg:flex-row items-center justify-center gap-8">
+      <div className="hidden lg:block">
+        <CompanyImages />
+      </div>
+      <div className="relative flex-1 flex flex-col space-y-4 md:space-y-8 max-w-3xl">
         <motion.div 
           className="absolute w-0.5 md:w-1 h-full bg-[var(--text-main)]/10 left-[12px] md:left-1/2 md:-translate-x-1/2"
           initial={{ scaleY: 0, opacity: 0 }}

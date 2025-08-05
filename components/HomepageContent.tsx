@@ -4,6 +4,8 @@ import { JourneyChart } from './JourneyChart';
 import ProductsAndTechnology from './ProductsAndTechnology';
 import { BlockchainIcon, AIIcon, CloudIcon, CybersecurityIcon, IoTIcon, SoftwareDevIcon } from './icons/ServiceIcons';
 import { TwitterIcon, LinkedInIcon } from './icons/SocialIcons';
+import { TeamCard } from './TeamCard';
+import '../styles/teamCard.css';
 
 const Section: React.FC<{id: string; title: string; subtitle: string; children: React.ReactNode; className?: string}> = ({ id, title, subtitle, children, className }) => (
     <section id={id} className={`py-16 sm:py-20 md:py-24 px-6 md:px-12 ${className}`}>
@@ -182,16 +184,23 @@ const HomepageContent: React.FC = () => {
         <ProductsAndTechnology />
 
         <Section id="team" title="Meet the Experts" subtitle="A collective of visionary engineers, designers, and strategists driving the future of technology.">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-                {['Jane Doe', 'John Smith', 'Alex Ray', 'Sarah Wilson'].map((name, i) => (
-                    <div key={name} className="text-center">
-                        <div className="w-32 h-32 mx-auto rounded-full bg-[var(--glass-bg)] border border-[var(--glass-bg)] mb-4 flex items-center justify-center">
-                            <svg className="w-16 h-16 text-[var(--text-main)] opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
-                        </div>
-                        <h3 className="text-xl font-bold text-[var(--text-heading)]">{name}</h3>
-                        <p className="text-[var(--text-main)] opacity-70">{['CEO & Founder', 'Lead Architect', 'Head of AI', 'Lead Designer'][i]}</p>
-                    </div>
-                ))}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <div className="md:col-span-1">
+                    <TeamCard 
+                        name="Jane Doe"
+                        title="CEO & Founder"
+                        bio="Jane is a visionary leader with over 20 years of experience in the tech industry. She founded SystemsGroup with the mission to decentralize the digital world."
+                        isLarge={true}
+                    />
+                </div>
+                <div className="md:col-span-2 grid grid-cols-2 sm:grid-cols-3 gap-8">
+                    <TeamCard name="John Smith" title="Lead Architect" bio="John is the mastermind behind our scalable and secure blockchain protocols." />
+                    <TeamCard name="Alex Ray" title="Head of AI" bio="Alex leads our AI division, pushing the boundaries of on-chain analytics." />
+                    <TeamCard name="Sarah Wilson" title="Lead Designer" bio="Sarah's creative vision ensures our products are not only powerful but also beautiful and intuitive." />
+                    <TeamCard name="Mike Brown" title="Head of Engineering" bio="Mike ensures our engineering teams are building robust and reliable systems." />
+                    <TeamCard name="Emily White" title="Head of Product" bio="Emily drives the product vision, ensuring we are building what our customers need." />
+                    <TeamCard name="Chris Green" title="Head of Security" bio="Chris is responsible for the security of our platforms and our clients' assets." />
+                </div>
             </div>
         </Section>
         
@@ -230,16 +239,6 @@ const HomepageContent: React.FC = () => {
             </div>
         </Section>
 
-        <Section id="investors" title="Investor Relations" subtitle="Partner with us to build the future of technology. We are committed to growth, innovation, and creating long-term value.">
-            <div className="max-w-4xl mx-auto bg-[var(--glass-bg)] border border-[var(--glass-bg)] rounded-2xl p-8 md:p-12 text-center">
-                <p className="text-[var(--text-main)] opacity-80 mb-6 leading-relaxed">
-                    SystemsGroup is at the forefront of technological innovation, with a proven track record of delivering transformative products. We offer a unique opportunity to invest in a company shaping the future of decentralized systems and artificial intelligence. For inquiries and our investor deck, please reach out to our team.
-                </p>
-                <a href="#contact" className="inline-block text-base font-medium px-6 py-3 rounded-lg bg-[var(--text-main)] text-[var(--bg-main)] hover:opacity-90 transition-opacity">
-                    Contact Investor Relations
-                </a>
-            </div>
-        </Section>
         
         <Section id="contact" title="Get In Touch" subtitle="Have a project in mind or want to learn more? We'd love to hear from you.">
              <div className="max-w-2xl mx-auto bg-[var(--glass-bg)] border border-[var(--glass-bg)] rounded-2xl p-8 md:p-12">
