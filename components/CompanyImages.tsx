@@ -18,6 +18,11 @@ const images = [
     src: '/images/company4.jpg',
     alt: 'Company Image 4',
   },
+  {
+    src: '/images/company5.jpg',
+    alt: 'Company Image 5',
+  },
+ 
 ];
 
 export const CompanyImages: React.FC = () => {

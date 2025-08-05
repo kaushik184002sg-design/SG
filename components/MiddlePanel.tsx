@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Spline from '@splinetool/react-spline';
 import '../styles/smoothScroll.css';
 
 export default function MiddlePanel({ isLoaded }: { isLoaded: boolean }) {
@@ -47,31 +46,6 @@ export default function MiddlePanel({ isLoaded }: { isLoaded: boolean }) {
       className={`relative z-20 w-full lg:flex-1 flex flex-col justify-center items-center text-center p-4 md:p-8 min-h-[80vh] md:min-h-0 bg-white/10 border border-white/20 rounded-2xl transition-all duration-[2000ms] ease-in-out ${isLoaded ? 'scale-100' : 'scale-[2.5] !rounded-none'}`}
       onWheel={handleScroll}
     >
-      <div 
-        ref={containerRef}
-        className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden flex items-center justify-center"
-        onMouseMove={(e) => {
-          if (!containerRef.current) return;
-          const rect = containerRef.current.getBoundingClientRect();
-          const x = ((e.clientX - rect.left) / rect.width) * 100;
-          const y = ((e.clientY - rect.top) / rect.height) * 100;
-          if (containerRef.current.style) {
-            containerRef.current.style.setProperty('--mouse-x', `${x}%`);
-            containerRef.current.style.setProperty('--mouse-y', `${y}%`);
-          }
-        }}
-      >
-        <Spline 
-          scene="https://prod.spline.design/LxGJQUvEd76F1hBY/scene.splinecode" 
-          style={{ 
-            width: '100%',
-            height: '120%',
-            transformOrigin: 'center center',
-            position: 'relative',
-            transform: window.innerWidth < 768 ? 'translateY(5%) scale(1.5)' : 'translateY(5%)'
-          }} 
-        />
-      </div>
     </section>
   );
 }

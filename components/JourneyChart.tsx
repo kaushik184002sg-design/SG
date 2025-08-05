@@ -41,12 +41,12 @@ export const JourneyChart: React.FC = () => {
           transition={{ duration: 1.5, ease: "easeOut" }}
         />
         {milestones.map((milestone, index) => (
-          <div key={index} className="relative flex items-center w-full">
+          <div key={index} className={`relative flex items-center w-full ${index % 2 !== 0 ? 'md:justify-end' : ''}`}>
             <motion.div 
-              className={`w-full md:w-1/2 flex justify-start pl-8 md:${index % 2 === 0 ? 'justify-end pr-8' : 'justify-start pl-8'}`}
+              className={`w-full md:w-1/2 flex ${index % 2 === 0 ? 'md:justify-end md:pr-8' : 'md:justify-start md:pl-8'}`}
               initial={{ 
                 opacity: 0,
-                x: -50
+                x: index % 2 !== 0 ? 50 : -50
               }}
               whileInView={{ 
                 opacity: 1,
@@ -59,7 +59,7 @@ export const JourneyChart: React.FC = () => {
                 ease: "easeOut"
               }}
             >
-              <div className={`w-full max-w-sm p-4 md:p-6 bg-[var(--glass-bg)] border border-[var(--glass-bg)] backdrop-blur-lg rounded-2xl text-left md:${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
+              <div className={`w-full max-w-sm p-4 md:p-6 bg-[var(--glass-bg)] border border-[var(--glass-bg)] backdrop-blur-lg rounded-2xl ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
                 <p className="text-xl font-bold text-green-600 mb-1">{milestone.year}</p>
                 <h3 className="text-lg font-semibold text-[var(--text-heading)] mb-2">{milestone.title}</h3>
                 <p className="text-sm text-[var(--text-main)]">{milestone.description}</p>

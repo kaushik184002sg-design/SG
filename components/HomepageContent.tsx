@@ -66,7 +66,119 @@ const HomepageContent: React.FC = () => {
                 </div>
             </div>
         </Section>
-        
+
+        <Section id="business-model" title="Our Business Model" subtitle="A blueprint of how we create, deliver, and capture value, structured as a business model canvas.">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-4 max-w-7xl mx-auto text-left">
+                
+                {/* Row 1 */}
+                <div className="bg-[var(--glass-bg)] border border-[var(--glass-bg)] rounded-2xl p-6 md:col-span-1">
+                    <h3 className="text-xl font-bold text-[var(--text-heading)] mb-3">💼 Key Partners</h3>
+                    <ul className="list-disc list-inside text-sm text-[var(--text-main)] opacity-80 space-y-1.5">
+                        <li>Cloud Providers (AWS, Azure)</li>
+                        <li>API Partners (Stripe, Twilio)</li>
+                        <li>Consultants & Integrators</li>
+                        <li>Cybersecurity Specialists</li>
+                        <li>Academic Institutions</li>
+                        <li>Resellers & Distributors</li>
+                    </ul>
+                </div>
+
+                <div className="grid grid-rows-2 gap-4 md:col-span-1">
+                    <div className="bg-[var(--glass-bg)] border border-[var(--glass-bg)] rounded-2xl p-6">
+                        <h3 className="text-xl font-bold text-[var(--text-heading)] mb-3">🛠️ Core Activities</h3>
+                        <ul className="list-disc list-inside text-sm text-[var(--text-main)] opacity-80 space-y-1.5">
+                            <li>Agile Product Development</li>
+                            <li>DevOps & QA</li>
+                            <li>Client Onboarding</li>
+                            <li>Continuous R&D</li>
+                        </ul>
+                    </div>
+                    <div className="bg-[var(--glass-bg)] border border-[var(--glass-bg)] rounded-2xl p-6">
+                        <h3 className="text-xl font-bold text-[var(--text-heading)] mb-3">🧠 Key Resources</h3>
+                        <ul className="list-disc list-inside text-sm text-[var(--text-main)] opacity-80 space-y-1.5">
+                            <li>Skilled Engineering Teams</li>
+                            <li>Proprietary Software IP</li>
+                            <li>Robust Tech Platform</li>
+                            <li>Brand & Client Relationships</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div className="bg-[var(--glass-bg)] border border-[var(--glass-bg)] rounded-2xl p-6 md:col-span-1 flex flex-col justify-center items-center text-center">
+                    <h3 className="text-xl font-bold text-[var(--text-heading)] mb-3">🎯 Value Proposition</h3>
+                    <ul className="list-disc list-inside text-sm text-[var(--text-main)] opacity-80 space-y-1.5">
+                        <li>Scalable & Secure Platforms</li>
+                        <li>Intuitive, API-driven Design</li>
+                        <li>Seamless Integrations</li>
+                        <li>Transparent ROI</li>
+                        <li>Dedicated Enterprise Support</li>
+                    </ul>
+                </div>
+
+                <div className="grid grid-rows-2 gap-4 md:col-span-1">
+                    <div className="bg-[var(--glass-bg)] border border-[var(--glass-bg)] rounded-2xl p-6">
+                        <h3 className="text-xl font-bold text-[var(--text-heading)] mb-3">💬 Customer Relationships</h3>
+                        <ul className="list-disc list-inside text-sm text-[var(--text-main)] opacity-80 space-y-1.5">
+                            <li>Dedicated Account Mgmt</li>
+                            <li>Guided Onboarding</li>
+                            <li>Webinars & Tutorials</li>
+                            <li>Community Forums</li>
+                        </ul>
+                    </div>
+                    <div className="bg-[var(--glass-bg)] border border-[var(--glass-bg)] rounded-2xl p-6">
+                        <h3 className="text-xl font-bold text-[var(--text-heading)] mb-3">📣 Channels</h3>
+                        <ul className="list-disc list-inside text-sm text-[var(--text-main)] opacity-80 space-y-1.5">
+                            <li>Website & Landing Pages</li>
+                            <li>Direct Sales Outreach</li>
+                            <li>Digital Marketing & SEO</li>
+                            <li>Tech Events & Expos</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div className="bg-[var(--glass-bg)] border border-[var(--glass-bg)] rounded-2xl p-6 md:col-span-1">
+                    <h3 className="text-xl font-bold text-[var(--text-heading)] mb-3">🧩 Who We Serve</h3>
+                    <ul className="list-disc list-inside text-sm text-[var(--text-main)] opacity-80 space-y-1.5">
+                        <li>Large Enterprises</li>
+                        <li>High-growth Startups</li>
+                        <li>Fintech & Healthcare</li>
+                        <li>EdTech & Retail</li>
+                        <li>Public Sector</li>
+                        <li>Consultants & Resellers</li>
+                    </ul>
+                </div>
+
+                {/* Row 2 */}
+                <div className="bg-[var(--glass-bg)] border border-[var(--glass-bg)] rounded-2xl p-6 md:col-span-3">
+                    <h3 className="text-xl font-bold text-[var(--text-heading)] mb-3">💵 Cost Structure</h3>
+                    <ul className="list-disc list-inside text-sm text-[var(--text-main)] opacity-80 space-y-1.5 sm:columns-2">
+                        <li>Engineering & Product Salaries</li>
+                        <li>Cloud Infrastructure & Tools</li>
+                        <li>R&D and Innovation</li>
+                        <li>Marketing & Sales</li>
+                        <li>Security & Compliance</li>
+                        <li>Legal & Administration</li>
+                    </ul>
+                </div>
+                <div className="bg-[var(--glass-bg)] border border-[var(--glass-bg)] rounded-2xl p-6 md:col-span-2">
+                    <h3 className="text-xl font-bold text-[var(--text-heading)] mb-3">💰 Revenue Model</h3>
+                    <ul className="list-disc list-inside text-sm text-[var(--text-main)] opacity-80 space-y-1.5 sm:columns-2">
+                        <li>SaaS Subscriptions</li>
+                        <li>Enterprise Licensing</li>
+                        <li>Custom Development</li>
+                        <li>Premium Support Plans</li>
+                        <li>Marketplace Fees</li>
+                    </ul>
+                </div>
+            </div>
+            <div className="max-w-7xl mx-auto mt-4 text-center bg-[var(--glass-bg)] border border-[var(--glass-bg)] rounded-2xl p-6">
+                <h3 className="text-xl font-bold text-[var(--text-heading)] mb-3">💡 Why Choose Systems Group?</h3>
+                <p className="text-[var(--text-main)] opacity-80 max-w-4xl mx-auto">
+                    We don’t just build software — we build value. With deep technical expertise and customer-centric innovation, Systems Group helps businesses transform their operations with technology that is powerful, reliable, and ready for the future.
+                </p>
+            </div>
+        </Section>
+
         <ProductsAndTechnology />
 
         <Section id="team" title="Meet the Experts" subtitle="A collective of visionary engineers, designers, and strategists driving the future of technology.">
